@@ -4,7 +4,7 @@ const movieRouter = require('./movies');
 const { createUser, login, logout } = require('../controllers/users');
 const auth = require('../middlewares/auth');
 const NotFoundError = require('../errors/notFoundError');
-const { validateAuth, validateSignup, validateSignin } = require('../middlewares/validation');
+const { validateSignup, validateSignin } = require('../middlewares/validation');
 
 // роуты, не требующие авторизации
 // роут регистрации
@@ -13,7 +13,7 @@ router.post('/signup', validateSignup, createUser);
 router.post('/signin', validateSignin, login);
 
 // мидлвэр авторизации
-router.use(validateAuth, auth);
+router.use(auth);
 
 // роуты требующие авторизации
 router.use('/users', userRouter);

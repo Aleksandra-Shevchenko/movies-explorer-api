@@ -42,12 +42,6 @@ const validateSignin = celebrate({
   }),
 });
 
-const validateAuth = celebrate({
-  headers: Joi.object().keys({
-    authorization: Joi.string().required(),
-  }).unknown(),
-});
-
 const validateUserProfile = celebrate({
   body: Joi.object().keys({
     name: Joi.string().required().min(2).max(30),
@@ -80,7 +74,6 @@ const validateCreateMovie = celebrate({
 module.exports = {
   validateSignup,
   validateSignin,
-  validateAuth,
   validateUserProfile,
   validateMovie,
   validateCreateMovie,
