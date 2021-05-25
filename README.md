@@ -35,5 +35,5 @@
 
 ----------------
 
-### Запуск:
-* Адрес для запросов на бэкенд: https://api.shev.movies.students.nomoredomains.icu
+### Запуск
+Адрес для запросов на бэкенд: https://api.shev.movies.students.nomoredomains.icu
