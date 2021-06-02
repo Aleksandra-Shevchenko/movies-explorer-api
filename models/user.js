@@ -44,13 +44,13 @@ userSchema.statics.findUserByCredentials = function getUserIfAuth(email, passwor
     .then((user) => {
       if (!user) {
         // не нашёлся — отклоняем промис
-        return Promise.reject(new AuthError('Неверный логин или пароль'));
+        return Promise.reject(new AuthError('Вы ввели неправильный логин или пароль'));
       }
       // нашёлся — сравниваем хеши
       return bcrypt.compare(password, user.password)
         .then((matched) => {
           if (!matched) {
-            return Promise.reject(new AuthError('Неверный логин или пароль'));
+            return Promise.reject(new AuthError('Вы ввели неправильный логин или пароль'));
           }
           return user;
         });
